@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo cp /etc/hosts /etc/hosts_bak
+sudo cp etc/hosts /etc/hosts
+
 ##modify some system settings
 echo "overlay 
 br_netfilter " >> /etc/modules-load.d/containerd.conf 
