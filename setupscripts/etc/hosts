@@ -9,7 +9,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 #########################
-172.31.22.246 k8s-control
-172.31.21.55 k8s-worker1
-172.31.19.223 k8s-worker2
-172.31.26.110 k8s-worker3
+172.31.31.134 k8s-control
+172.31.22.62 k8s-worker1
+172.31.31.105 k8s-worker2
+172.31.22.136 k8s-worker3
