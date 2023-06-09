@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dev-ingress-tomcatinfra
+  namespace: default
+  labels:
+    app: tomcatinfra
+  annotations: #load balancer settigs
+    alb.ingress.kubernetes.io/load-balancer-name: aws-load-balancer
+    alb.ingress.kubernetes.io/subnets: subnet-0f7eae84bdcc20685, subnet-071a3e8531b38e84c
+    alb.ingress.kubernetes.io/scheme: internet-facing 
+    kubernetes.io/ingress.class: alb
+spec:
+  ingressClassName: alb
+  defaultBackend:
+    service:
+      name: tomcatappsvc
+      port:
+        number: 80

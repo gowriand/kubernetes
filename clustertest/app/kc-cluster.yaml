@@ -1,0 +1,35 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  version: "1.26"
+  name: shieldsafe-eks-dev
+  region: us-east-2 
+iam:
+  withOIDC: true
+vpc:
+  id: vpc-0b3bf0df0df913589
+  subnets:
+    private:
+      private1:
+        id: subnet-06edd22a3bde80795
+      private2:
+        id: subnet-0b7850308b28b3699
+    public:
+      public1:
+        id: subnet-0f7eae84bdcc20685
+      public2:
+        id: subnet-071a3e8531b38e84c
+
+nodeGroups:
+  - name: ng-workers
+    instanceType: t2.small
+    desiredCapacity: 3
+    minSize: 2
+    maxSize: 4
+    volumeSize: 20
+    volumeType: gp2
+    subnets:
+      - subnet-06edd22a3bde80795
+      - subnet-0b7850308b28b3699
+    privateNetworking: true
